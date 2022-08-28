@@ -1,0 +1,32 @@
+//Elaborar um método em JS cujo objetivo é resolver a fórmula de Bhaskara
+
+/* Para tal questão foi criada uma função "Delta" onde primeiramente calcula o valor
+   de Delta que fará o cálculo da seguinte fórmula: Δ = b² – 4ac. Em seguida foi criada
+   uma nova função "bhaskara" onde recebe o resultado de Delta e caso o resultado for negatio
+   retorna um String com a frase "Delta é negativo". Após feito isso calcula-se os valores x1 e x2 (discriminante
+   da equação e operações para determinar as raízes) com as seguinte fórmula x1 = (-b + √Δ) / 2*a e x2 = (-b - √Δ) / 2*a
+   cheganto assim ao resultado final proposto na questão.   
+*/
+
+function delta(ax2, bx, c){
+    let delta = (bx ** 2) - (4 * ax2 * c);
+    return delta;
+}
+
+function bhaskara(ax2, bx, c){
+    let resultados = [];
+    let resDelta = delta(ax2, bx, c);
+
+    if (resDelta < 0) {
+    return "Delta é negativo";
+    }
+
+    let x1 = (-bx + Math.sqrt(resDelta)) / 2 * ax2;
+    let x2 = (-bx - Math.sqrt(resDelta)) / 2 * ax2;
+    resultados.push(x1);
+    resultados.push(x2);
+    
+    return resultados;
+}
+
+    console.log(bhaskara(3, -5, 12));
